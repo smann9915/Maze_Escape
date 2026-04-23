@@ -117,14 +117,20 @@ void printPath(pair<int,int> exitcell,
 // STUDENTS IMPLEMENT DFS HERE
 // Add arguments, return type, and logic
 // ----------------------------------------------------------
-bool dfs(int ent_r, int ent_c,
-     vector<vector<int>> maze, vector<vector<bool>> visited,
-     vector<vector<int>> parent_r, vector<vector<int>> parent_c,
-     int exit_r, int exit_c)
+bool dfs(int r, int c,
+         const vector<vector<int>>& maze,
+         vector<vector<bool>>& visited,
+         vector<vector<int>>& parent_r,
+         vector<vector<int>>& parent_c,
+         int exit_r, int exit_c)
 {
-     return false;
+    //Skip if this tile has already been visited
+    if (visited[r][c] == 1) return false;
+    //Set this tile to visited
+    visited[r][c] = 1;
+    //Check if reached the exit
+    if (r == exit_r && c == exit_c) { return true; }
 }
-
 
 // ----------------------------------------------------------
 // MAIN PROGRAM (students add DFS calls and logic)
