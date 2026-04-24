@@ -130,6 +130,14 @@ bool dfs(int r, int c,
     visited[r][c] = 1;
     //Check if reached the exit
     if (r == exit_r && c == exit_c) { return true; }
+
+    //calls the method in each direction
+    for (int i = 0; i < 4; i++) {
+        parent_r[dr[i] + r][dc[i] + c] = r;
+        parent_c[dr[i] + r][dc[i] + c] = c;
+
+        dfs(r + dr[i], c + dc[i], maze, visited, parent_r, parent_c, exit_r, exit_c);
+    }
 }
 
 // ----------------------------------------------------------
