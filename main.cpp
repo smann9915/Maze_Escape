@@ -125,17 +125,21 @@ bool dfs(int r, int c,
          int exit_r, int exit_c)
 {
     //Check if the tile is in bounds
-    if (r < 0 || r > maze.size() || c < 0 || maze[0].size()) {
+    if (r < 0 || r >= maze.size() || c < 0 || c >= maze[0].size()) {
         return false;
     }
 
     //Skip if this tile has already been visited or is a wall
-    if (visited[r][c] || maze[r][c] == 1) return false;
+    if (visited[r][c] || maze[r][c] == 1) {
+        return false;
+    }
     //Set this tile to visited
     visited[r][c] = true;
 
     //Check if reached the exit
-    if (r == exit_r && c == exit_c) { return true; }
+    if (r == exit_r && c == exit_c) {
+        return true;
+    }
 
     //Bool holds if one path found the exit
     bool foundPath = false;
