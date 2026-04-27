@@ -124,20 +124,33 @@ bool dfs(int r, int c,
          vector<vector<int>>& parent_c,
          int exit_r, int exit_c)
 {
-    //Skip if this tile has already been visited
-    if (visited[r][c] == 1) return false;
+    //Check if the tile is in bounds
+    if (r < 0 || r > maze.size() || c < 0 || maze[0].size()) {
+        return false;
+    }
+
+    //Skip if this tile has already been visited or is a wall
+    if (visited[r][c] || maze[r][c] == 1) return false;
     //Set this tile to visited
-    visited[r][c] = 1;
+    visited[r][c] = true;
+
     //Check if reached the exit
     if (r == exit_r && c == exit_c) { return true; }
 
+    //Bool holds if one path found the exit
+    bool foundPath = false;
     //calls the method in each direction
     for (int i = 0; i < 4; i++) {
         parent_r[dr[i] + r][dc[i] + c] = r;
         parent_c[dr[i] + r][dc[i] + c] = c;
 
-        dfs(r + dr[i], c + dc[i], maze, visited, parent_r, parent_c, exit_r, exit_c);
+        bool outcome = dfs(r + dr[i], c + dc[i], maze, visited, parent_r, parent_c, exit_r, exit_c);
+        if (outcome) {
+            foundPath = true;
+        }
     }
+
+    return foundPath;
 }
 
 // ----------------------------------------------------------
@@ -179,6 +192,7 @@ int main() {
     // ------------------------------------------------------
     bool found = dfs(ent_r, ent_c, maze, visited, parent_r, parent_c, exit_r, exit_c);
 
+    cout << found << endl;
     // ------------------------------------------------------
     // STUDENT WORK:
     // If found, print the path
