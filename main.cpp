@@ -145,12 +145,11 @@ bool dfs(int r, int c,
     bool foundPath = false;
     //calls the method in each direction
     for (int i = 0; i < 4; i++) {
-        parent_r[dr[i] + r][dc[i] + c] = r;
-        parent_c[dr[i] + r][dc[i] + c] = c;
-
         bool outcome = dfs(r + dr[i], c + dc[i], maze, visited, parent_r, parent_c, exit_r, exit_c);
         if (outcome) {
             foundPath = true;
+            parent_r[dr[i] + r][dc[i] + c] = r;
+            parent_c[dr[i] + r][dc[i] + c] = c;
         }
     }
 
