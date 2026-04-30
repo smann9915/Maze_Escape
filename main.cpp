@@ -117,6 +117,21 @@ void printPath(pair<int,int> exitcell,
 // STUDENTS IMPLEMENT DFS HERE
 // Add arguments, return type, and logic
 // ----------------------------------------------------------
+bool isValidSpace(int r, int c,
+    const vector<vector<int>>& maze,
+    vector<vector<bool>>& visited)
+{
+    //Check if the tile is in bounds
+    if (r < 0 || r >= maze.size() || c < 0 || c >= maze[0].size()) {
+        return false;
+    }
+    //Check If this tile is either visited or a wall
+    if (visited[r][c] || maze[r][c] == 1) {
+        return false;
+    }
+    return true;
+}
+
 bool dfs(int r, int c,
          const vector<vector<int>>& maze,
          vector<vector<bool>>& visited,
@@ -124,15 +139,6 @@ bool dfs(int r, int c,
          vector<vector<int>>& parent_c,
          int exit_r, int exit_c)
 {
-    //Check if the tile is in bounds
-    if (r < 0 || r >= maze.size() || c < 0 || c >= maze[0].size()) {
-        return false;
-    }
-
-    //Skip if this tile has already been visited or is a wall
-    if (visited[r][c] || maze[r][c] == 1) {
-        return false;
-    }
     //Set this tile to visited
     visited[r][c] = true;
 
@@ -145,11 +151,13 @@ bool dfs(int r, int c,
     bool foundPath = false;
     //calls the method in each direction
     for (int i = 0; i < 4; i++) {
-        bool outcome = dfs(r + dr[i], c + dc[i], maze, visited, parent_r, parent_c, exit_r, exit_c);
-        if (outcome) {
-            foundPath = true;
-            parent_r[dr[i] + r][dc[i] + c] = r;
-            parent_c[dr[i] + r][dc[i] + c] = c;
+        if (isValidSpace(r + dr[i], c + dc[i], maze, visited)) {
+            bool outcome = dfs(r + dr[i], c + dc[i], maze, visited, parent_r, parent_c, exit_r, exit_c);
+            if (outcome) {
+                foundPath = true;
+                parent_r[dr[i] + r][dc[i] + c] = r;
+                parent_c[dr[i] + r][dc[i] + c] = c;
+            }
         }
     }
 
