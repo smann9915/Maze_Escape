@@ -39,24 +39,27 @@ Each entry may be one of the following:
 **Commit(s):**
 ---
 ### Entry 3
-**Date:** YYYY-MM-DD
-**Entry Type:** Bug Fix / Edge Case / Engineering Decision
-**Task worked on:**
-**Issue or decision:**
-**Error message / symptom (if applicable):**
-**What I tried:**
-**Fix / resolution (or final decision):**
+**Date:** 2026-04-26 \
+**Entry Type:** Edge Case \
+**Task worked on:** Checking if a space is valid. \
+**Issue or decision:** Choosing how to validate a space. \
+**Error message / symptom (if applicable):** Random exit code because out of bounds accessing. \
+**What I tried:** I landed on the solution with an error I solved later. \
+**Fix / resolution (or final decision):** I added an if statement checking if the rows or cols are out of the array's 
+bounds and a statement checking if we are on a wall
 **Commit(s):**
+Boudries Check
 ---
 ### Entry 4
-**Date:** YYYY-MM-DD
-**Entry Type:** Bug Fix / Edge Case / Engineering Decision
-**Task worked on:**
-**Issue or decision:**
-**Error message / symptom (if applicable):**
-**What I tried:**
-**Fix / resolution (or final decision):**
+**Date:**  2026-04-27 \
+**Entry Type:** Edge Case \
+**Task worked on:** Checking if a space is within a boundry. \
+**Issue or decision:** It let in boundaries that were of the size of the array
+**Error message / symptom (if applicable):** Random exit code. \
+**What I tried:** The solution is all I tried. \
+**Fix / resolution (or final decision):** I change the condition for being outside the array's bounds to >= from >. \
 **Commit(s):**
+Fixed Boundaries Check 1 
 ---
 ### Entry 5
 **Date:** 2026-04-28
