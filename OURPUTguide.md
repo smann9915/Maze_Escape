@@ -2,41 +2,29 @@
 ## Maze Escape (Spring 2026)
 
 ---
-## Allowed Entry Types
-Each entry may be one of the following:
-1) **Bug Fix Entry**
-- The issue encountered.
-- Error messages or symptoms.
-- Attempts made.
-- Final resolution.
-2) **Edge Case / Testing Entry**
-- A failure discovered through testing.
-- The specific input/state that caused it.
-- The change you made to handle it correctly.
-3) **Engineering Decision Entry (up to 2 allowed)**
-- A design decision you made.
-- An alternative approach you considered.
-- Why you chose one approach over another (tradeoffs).
----
 ### Entry 1
-**Date:** YYYY-MM-DD
-**Entry Type:** Bug Fix / Edge Case / Engineering Decision
-**Task worked on:**
-**Issue or decision:**
-**Error message / symptom (if applicable):**
-**What I tried:**
-**Fix / resolution (or final decision):**
+**Date:** 2026-04-24 \
+**Entry Type:** Engineering Decision \
+**Task worked on:** The Reursive case setup. \
+**Issue or decision:** How to go about the Recursive Steps. \
+**Error message / symptom (if applicable):** N/A \
+**What I tried:** This was a conceptual commit so I tried only what I commited. \
+**Fix / resolution (or final decision):** I found the direction array's and made the recursive call, call it's self with
+a new direction for the length of the direction array's and since they don't change I put < 4. \
 **Commit(s):**
+Recursive Attempt 1"
 ---
 ### Entry 2
-**Date:** YYYY-MM-DD
-**Entry Type:** Bug Fix / Edge Case / Engineering Decision
-**Task worked on:**
-**Issue or decision:**
-**Error message / symptom (if applicable):**
-**What I tried:**
-**Fix / resolution (or final decision):**
+**Date:** 2026-04-26 \
+**Entry Type:** Engineering Decision \
+**Task worked on:** The backtracking of the recursive call. \
+**Issue or decision:** How I would track up the recursive calls to show that a path was found. \
+**Error message / symptom (if applicable):** N/A \
+**What I tried:** I landed on my solution first try. \
+**Fix / resolution (or final decision):** I made a bool that is outside the for loop that holds if a path is found it
+sets the bool to true and that foundPath is what is returned. \
 **Commit(s):**
+Boudries Check
 ---
 ### Entry 3
 **Date:** 2026-04-26 \
@@ -62,8 +50,8 @@ Boudries Check
 Fixed Boundaries Check 1 
 ---
 ### Entry 5
-**Date:** 2026-04-28
-**Entry Type:** Bug Fix 
+**Date:** 2026-04-28 \
+**Entry Type:** Bug Fix  
 **Task worked on:** Showing the found path traceback \
 **Issue or decision:** I was adding to the parent's array in the wrong space. \
 **Error message / symptom (if applicable):** It would time out and give an error code. \
@@ -75,7 +63,7 @@ add to it once I know it's correct so I moved the parent setting to the part whe
 Parent Array's Fix
 ---
 ### Entry 6
-**Date:** 2026-04-29
+**Date:** 2026-04-29 \
 **Entry Type:** Engineering Decision \
 **Task worked on:** Refactoring \
 **Issue or decision:** Creating a method to check if a space isValid \
